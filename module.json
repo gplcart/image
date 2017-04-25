@@ -1,0 +1,9 @@
+{
+    "name": "Image",
+    "version": "1.0.0-dev",
+    "description": "Advanced image style actions for GPL Cart",
+    "author": "Iurii Makukh ",
+    "core": "1.x",
+    "license": "GPL-3.0+",
+    "php": ">= 5.6"
+}
