@@ -51,7 +51,7 @@ class Image extends Module
      */
     public function hookImagestyleActionHandlers(array &$handlers)
     {
-        $config = include __DIR__ . '/config/actions.php';
+        $config = require __DIR__ . '/config/actions.php';
         $handlers = array_merge($handlers, $config);
     }
 
