@@ -54,7 +54,7 @@ class Validator
 
         list($overlay, $anchor, $opacity, $xoffset, $yoffset) = $value;
 
-        return is_file(GC_FILE_DIR . "/$overlay")//
+        return is_file(gplcart_file_absolute_path($overlay))//
                 && in_array($anchor, array('center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right'))//
                 && (is_numeric($opacity) && (0 <= $opacity) && ($opacity <= 1))//
                 && ctype_digit($xoffset)//
