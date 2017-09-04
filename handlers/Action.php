@@ -36,6 +36,7 @@ class Action
     /**
      * @param string $source
      * @param string $target
+     * @return bool
      */
     public function autoOrient(&$source, $target)
     {
@@ -45,6 +46,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -52,6 +54,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function bestFit(&$source, $target, array $action)
     {
@@ -62,6 +65,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -69,6 +73,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function flip(&$source, $target, array $action)
     {
@@ -79,6 +84,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -86,6 +92,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function overlay(&$source, $target, array $action)
     {
@@ -96,6 +103,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -103,6 +111,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function rotate(&$source, $target, array $action)
     {
@@ -113,6 +122,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -120,6 +130,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function border(&$source, $target, array $action)
     {
@@ -130,6 +141,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -137,6 +149,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function fill(&$source, $target, array $action)
     {
@@ -147,6 +160,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -154,6 +168,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function blur(&$source, $target, array $action)
     {
@@ -164,6 +179,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -171,6 +187,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function brighten(&$source, $target, array $action)
     {
@@ -181,6 +198,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -188,6 +206,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function colorize(&$source, $target, array $action)
     {
@@ -198,6 +217,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -205,6 +225,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function contrast(&$source, $target, array $action)
     {
@@ -215,6 +236,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -222,6 +244,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function darken(&$source, $target, array $action)
     {
@@ -232,12 +255,14 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $source
      * @param string $target
+     * @return bool
      */
     public function desaturate(&$source, $target)
     {
@@ -247,6 +272,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -254,6 +280,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function duotone(&$source, $target, array $action)
     {
@@ -264,12 +291,14 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $source
      * @param string $target
+     * @return bool
      */
     public function edgeDetect(&$source, $target)
     {
@@ -279,12 +308,14 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $source
      * @param string $target
+     * @return bool
      */
     public function emboss(&$source, $target)
     {
@@ -294,12 +325,14 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $source
      * @param string $target
+     * @return bool
      */
     public function invert(&$source, $target)
     {
@@ -309,6 +342,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -316,6 +350,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function opacity(&$source, $target, array $action)
     {
@@ -326,6 +361,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
@@ -333,6 +369,7 @@ class Action
      * @param string $source
      * @param string $target
      * @param array $action
+     * @return bool
      */
     public function pixelate(&$source, $target, array $action)
     {
@@ -343,12 +380,14 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $source
      * @param string $target
+     * @return bool
      */
     public function sepia(&$source, $target)
     {
@@ -358,12 +397,14 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $source
      * @param string $target
+     * @return bool
      */
     public function sharpen(&$source, $target)
     {
@@ -373,12 +414,14 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $source
      * @param string $target
+     * @return bool
      */
     public function sketch(&$source, $target)
     {
@@ -388,6 +431,7 @@ class Action
         } catch (\Exception $ex) {
             return false;
         }
+
         return true;
     }
 
