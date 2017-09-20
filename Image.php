@@ -32,8 +32,8 @@ class Image extends Module
     public function hookLibraryList(array &$libraries)
     {
         $libraries['simpleimage'] = array(
-            'name' => 'SimpleImage',
-            'description' => 'A PHP class that simplifies working with images',
+            'name' => /* @text */'SimpleImage',
+            'description' => /* @text */'A PHP class that simplifies working with images',
             'type' => 'php',
             'module' => 'image',
             'url' => 'https://github.com/claviska/SimpleImage',
@@ -51,8 +51,23 @@ class Image extends Module
      */
     public function hookImagestyleActionHandlers(array &$handlers)
     {
-        $config = require __DIR__ . '/config/actions.php';
-        $handlers = array_merge($handlers, $config);
+        $handlers = array_merge($handlers, $this->getActionHandlers());
+    }
+
+    /**
+     * Returns an array of image style actions
+     * @return array
+     */
+    public function getActionHandlers()
+    {
+        static $handlers = null;
+
+        if (isset($handlers)) {
+            return $handlers;
+        }
+
+        $handlers = require __DIR__ . '/config/actions.php';
+        return $handlers;
     }
 
     /**
