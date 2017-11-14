@@ -56,22 +56,6 @@ class Image extends Module
     }
 
     /**
-     * Returns an array of image style actions
-     * @return array
-     */
-    public function getActionHandlers()
-    {
-        static $handlers = null;
-
-        if (isset($handlers)) {
-            return $handlers;
-        }
-
-        $handlers = require __DIR__ . '/config/actions.php';
-        return $handlers;
-    }
-
-    /**
      * Implements hook "module.enable.after"
      */
     public function hookModuleEnableAfter()
@@ -101,6 +85,15 @@ class Image extends Module
     public function hookModuleUninstallAfter()
     {
         $this->getLibrary()->clearCache();
+    }
+
+    /**
+     * Returns an array of image style actions
+     * @return array
+     */
+    public function getActionHandlers()
+    {
+        return gplcart_config_get(__DIR__ . '/config/actions.php');
     }
 
 }
