@@ -1,7 +1,7 @@
 [![Build Status](https://scrutinizer-ci.com/g/gplcart/image/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gplcart/image/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gplcart/image/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gplcart/image/?branch=master)
 
-Image is a [GPL Cart](https://github.com/gplcart/gplcart) module that adds advanced image style actions for your GPL Cart site. Based on the [SimpleImage](https://github.com/claviska/SimpleImage) library
+Image is a [GPL Cart](https://github.com/gplcart/gplcart) module that adds advanced image style actions for your GPL Cart site. Based on [SimpleImage](https://github.com/claviska/SimpleImage) library
 
 **Supported actions**
 
