@@ -10,12 +10,12 @@
 namespace gplcart\modules\image;
 
 use gplcart\core\Library,
-    gplcart\core\Module;
+    gplcart\core\Module as CoreModule;
 
 /**
  * Main class for Image module
  */
-class Image
+class Module
 {
 
     /**
@@ -34,7 +34,7 @@ class Image
      * @param Module $module
      * @param Library $library
      */
-    public function __construct(Module $module, Library $library)
+    public function __construct(CoreModule $module, Library $library)
     {
         $this->module = $module;
         $this->library = $library;
@@ -61,10 +61,10 @@ class Image
     }
 
     /**
-     * Implements hook "imagestyle.action.handlers"
+     * Implements hook "image.style.action.handlers"
      * @param array $handlers
      */
-    public function hookImagestyleActionHandlers(array &$handlers)
+    public function hookImageStyleActionHandlers(array &$handlers)
     {
         $handlers = array_merge($handlers, $this->getActionHandlers());
     }
