@@ -31,7 +31,7 @@ class Module
     protected $library;
 
     /**
-     * @param Module $module
+     * @param CoreModule $module
      * @param Library $library
      */
     public function __construct(CoreModule $module, Library $library)
