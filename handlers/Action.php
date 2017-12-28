@@ -9,7 +9,9 @@
 
 namespace gplcart\modules\image\handlers;
 
+use Exception;
 use gplcart\core\Library;
+use gplcart\core\exceptions\Dependency as DependencyException;
 
 /**
  * Image action methods for Image module
@@ -25,10 +27,15 @@ class Action
 
     /**
      * @param Library $library
+     * @throws DependencyException
      */
     public function __construct(Library $library)
     {
         $library->load('simpleimage');
+
+        if(!class_exists('claviska\\SimpleImage')){
+            throw new DependencyException('Class claviska\\SimpleImage does not exist');
+        }
 
         $this->image = new \claviska\SimpleImage;
     }
@@ -43,7 +50,7 @@ class Action
         try {
             $this->image->fromFile($source)->autoOrient()->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -62,7 +69,7 @@ class Action
             list($width, $height) = $action['value'];
             $this->image->fromFile($source)->bestFit($width, $height)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -81,7 +88,7 @@ class Action
             $direction = reset($action['value']);
             $this->image->fromFile($source)->flip($direction)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -100,7 +107,7 @@ class Action
             list($overlay, $anchor, $opacity, $xOffset, $yOffset) = $action['value'];
             $this->image->fromFile($source)->overlay($overlay, $anchor, $opacity, $xOffset, $yOffset)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -119,7 +126,7 @@ class Action
             list($angle, $backgroundColor) = $action['value'];
             $this->image->fromFile($source)->rotate($angle, $backgroundColor)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -138,7 +145,7 @@ class Action
             list($color, $thickness) = $action['value'];
             $this->image->fromFile($source)->border($color, $thickness)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -157,7 +164,7 @@ class Action
             list($color) = $action['value'];
             $this->image->fromFile($source)->fill($color)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -176,7 +183,7 @@ class Action
             list($type, $passes) = $action['value'];
             $this->image->fromFile($source)->blur($type, $passes)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -195,7 +202,7 @@ class Action
             list($percentage) = $action['value'];
             $this->image->fromFile($source)->brighten($percentage)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -214,7 +221,7 @@ class Action
             list($color) = $action['value'];
             $this->image->fromFile($source)->colorize($color)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -233,7 +240,7 @@ class Action
             list($percentage) = $action['value'];
             $this->image->fromFile($source)->contrast($percentage)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -252,7 +259,7 @@ class Action
             list($percentage) = $action['value'];
             $this->image->fromFile($source)->darken($percentage)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -269,7 +276,7 @@ class Action
         try {
             $this->image->fromFile($source)->desaturate()->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -288,7 +295,7 @@ class Action
             list($lightColor, $darkColor) = $action['value'];
             $this->image->fromFile($source)->duotone($lightColor, $darkColor)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -305,7 +312,7 @@ class Action
         try {
             $this->image->fromFile($source)->edgeDetect()->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -322,7 +329,7 @@ class Action
         try {
             $this->image->fromFile($source)->emboss()->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -339,7 +346,7 @@ class Action
         try {
             $this->image->fromFile($source)->invert()->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -358,7 +365,7 @@ class Action
             list($opacity) = $action['value'];
             $this->image->fromFile($source)->opacity($opacity)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -377,7 +384,7 @@ class Action
             list($size) = $action['value'];
             $this->image->fromFile($source)->pixelate($size)->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -394,7 +401,7 @@ class Action
         try {
             $this->image->fromFile($source)->sepia()->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -411,7 +418,7 @@ class Action
         try {
             $this->image->fromFile($source)->sharpen()->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
@@ -428,7 +435,7 @@ class Action
         try {
             $this->image->fromFile($source)->sketch()->toFile($target);
             $source = $target;
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             return false;
         }
 
