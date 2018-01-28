@@ -1,12 +1,20 @@
 {
-    "name": "gplcart/image",
-    "type": "gplcart-module",
-    "description": "Advanced image style actions for GPL Cart",
-    "keywords": ["gplcart", "ecommerce", "shopping cart", "gplcart module", "php", "simpleImage", "gd"],
-    "license": "GPL-3.0+",
-    "require": {
-        "gplcart/composer-module-installer": "*"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+  "name": "gplcart/image",
+  "type": "gplcart-module",
+  "description": "Advanced image style actions for GPL Cart",
+  "keywords": [
+    "gplcart",
+    "ecommerce",
+    "shopping cart",
+    "gplcart module",
+    "php",
+    "simpleImage",
+    "gd"
+  ],
+  "license": "GPL-3.0-or-later",
+  "require": {
+    "gplcart/composer-module-installer": "*"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
