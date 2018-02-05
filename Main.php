@@ -9,8 +9,8 @@
 
 namespace gplcart\modules\image;
 
-use gplcart\core\Module,
-    gplcart\core\Library;
+use gplcart\core\Library;
+use gplcart\core\Module;
 
 /**
  * Main class for Image module
@@ -47,8 +47,8 @@ class Main
     public function hookLibraryList(array &$libraries)
     {
         $libraries['simpleimage'] = array(
-            'name' => /* @text */'SimpleImage',
-            'description' => /* @text */'A PHP class that simplifies working with images',
+            'name' => 'SimpleImage', // @text
+            'description' => 'A PHP class that simplifies working with images', // @text
             'type' => 'php',
             'module' => 'image',
             'url' => 'https://github.com/claviska/SimpleImage',
