@@ -9,9 +9,10 @@
 
 namespace gplcart\modules\image\handlers;
 
+use claviska\SimpleImage;
 use Exception;
 use gplcart\core\Library;
-use gplcart\core\exceptions\Dependency as DependencyException;
+use LogicException;
 
 /**
  * Image action methods for Image module
@@ -27,17 +28,17 @@ class Action
 
     /**
      * @param Library $library
-     * @throws DependencyException
+     * @throws LogicException
      */
     public function __construct(Library $library)
     {
         $library->load('simpleimage');
 
-        if(!class_exists('claviska\\SimpleImage')){
-            throw new DependencyException('Class claviska\\SimpleImage does not exist');
+        if (!class_exists('claviska\\SimpleImage')) {
+            throw new LogicException('Class claviska\\SimpleImage does not exist');
         }
 
-        $this->image = new \claviska\SimpleImage;
+        $this->image = new SimpleImage;
     }
 
     /**
