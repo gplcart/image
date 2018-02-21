@@ -10,7 +10,6 @@
 namespace gplcart\modules\image\handlers;
 
 use claviska\SimpleImage;
-use Exception;
 use gplcart\core\Library;
 use LogicException;
 
@@ -48,13 +47,8 @@ class Action
      */
     public function autoOrient(&$source, $target)
     {
-        try {
-            $this->image->fromFile($source)->autoOrient()->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $this->image->fromFile($source)->autoOrient()->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -66,14 +60,9 @@ class Action
      */
     public function bestFit(&$source, $target, array $action)
     {
-        try {
-            list($width, $height) = $action['value'];
-            $this->image->fromFile($source)->bestFit($width, $height)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($width, $height) = $action['value'];
+        $this->image->fromFile($source)->bestFit($width, $height)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -85,14 +74,9 @@ class Action
      */
     public function flip(&$source, $target, array $action)
     {
-        try {
-            $direction = reset($action['value']);
-            $this->image->fromFile($source)->flip($direction)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $direction = reset($action['value']);
+        $this->image->fromFile($source)->flip($direction)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -104,14 +88,9 @@ class Action
      */
     public function overlay(&$source, $target, array $action)
     {
-        try {
-            list($overlay, $anchor, $opacity, $xOffset, $yOffset) = $action['value'];
-            $this->image->fromFile($source)->overlay($overlay, $anchor, $opacity, $xOffset, $yOffset)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($overlay, $anchor, $opacity, $xOffset, $yOffset) = $action['value'];
+        $this->image->fromFile($source)->overlay($overlay, $anchor, $opacity, $xOffset, $yOffset)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -123,14 +102,9 @@ class Action
      */
     public function rotate(&$source, $target, array $action)
     {
-        try {
-            list($angle, $backgroundColor) = $action['value'];
-            $this->image->fromFile($source)->rotate($angle, $backgroundColor)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($angle, $backgroundColor) = $action['value'];
+        $this->image->fromFile($source)->rotate($angle, $backgroundColor)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -142,14 +116,9 @@ class Action
      */
     public function border(&$source, $target, array $action)
     {
-        try {
-            list($color, $thickness) = $action['value'];
-            $this->image->fromFile($source)->border($color, $thickness)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($color, $thickness) = $action['value'];
+        $this->image->fromFile($source)->border($color, $thickness)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -161,14 +130,9 @@ class Action
      */
     public function fill(&$source, $target, array $action)
     {
-        try {
-            list($color) = $action['value'];
-            $this->image->fromFile($source)->fill($color)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($color) = $action['value'];
+        $this->image->fromFile($source)->fill($color)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -180,14 +144,9 @@ class Action
      */
     public function blur(&$source, $target, array $action)
     {
-        try {
-            list($type, $passes) = $action['value'];
-            $this->image->fromFile($source)->blur($type, $passes)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($type, $passes) = $action['value'];
+        $this->image->fromFile($source)->blur($type, $passes)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -199,14 +158,9 @@ class Action
      */
     public function brighten(&$source, $target, array $action)
     {
-        try {
-            list($percentage) = $action['value'];
-            $this->image->fromFile($source)->brighten($percentage)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($percentage) = $action['value'];
+        $this->image->fromFile($source)->brighten($percentage)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -218,14 +172,9 @@ class Action
      */
     public function colorize(&$source, $target, array $action)
     {
-        try {
-            list($color) = $action['value'];
-            $this->image->fromFile($source)->colorize($color)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($color) = $action['value'];
+        $this->image->fromFile($source)->colorize($color)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -237,14 +186,9 @@ class Action
      */
     public function contrast(&$source, $target, array $action)
     {
-        try {
-            list($percentage) = $action['value'];
-            $this->image->fromFile($source)->contrast($percentage)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($percentage) = $action['value'];
+        $this->image->fromFile($source)->contrast($percentage)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -256,14 +200,9 @@ class Action
      */
     public function darken(&$source, $target, array $action)
     {
-        try {
-            list($percentage) = $action['value'];
-            $this->image->fromFile($source)->darken($percentage)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($percentage) = $action['value'];
+        $this->image->fromFile($source)->darken($percentage)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -274,13 +213,8 @@ class Action
      */
     public function desaturate(&$source, $target)
     {
-        try {
-            $this->image->fromFile($source)->desaturate()->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $this->image->fromFile($source)->desaturate()->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -292,14 +226,9 @@ class Action
      */
     public function duotone(&$source, $target, array $action)
     {
-        try {
-            list($lightColor, $darkColor) = $action['value'];
-            $this->image->fromFile($source)->duotone($lightColor, $darkColor)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($lightColor, $darkColor) = $action['value'];
+        $this->image->fromFile($source)->duotone($lightColor, $darkColor)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -310,13 +239,8 @@ class Action
      */
     public function edgeDetect(&$source, $target)
     {
-        try {
-            $this->image->fromFile($source)->edgeDetect()->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $this->image->fromFile($source)->edgeDetect()->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -327,13 +251,8 @@ class Action
      */
     public function emboss(&$source, $target)
     {
-        try {
-            $this->image->fromFile($source)->emboss()->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $this->image->fromFile($source)->emboss()->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -344,13 +263,8 @@ class Action
      */
     public function invert(&$source, $target)
     {
-        try {
-            $this->image->fromFile($source)->invert()->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $this->image->fromFile($source)->invert()->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -362,14 +276,9 @@ class Action
      */
     public function opacity(&$source, $target, array $action)
     {
-        try {
-            list($opacity) = $action['value'];
-            $this->image->fromFile($source)->opacity($opacity)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($opacity) = $action['value'];
+        $this->image->fromFile($source)->opacity($opacity)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -381,14 +290,9 @@ class Action
      */
     public function pixelate(&$source, $target, array $action)
     {
-        try {
-            list($size) = $action['value'];
-            $this->image->fromFile($source)->pixelate($size)->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        list($size) = $action['value'];
+        $this->image->fromFile($source)->pixelate($size)->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -399,13 +303,8 @@ class Action
      */
     public function sepia(&$source, $target)
     {
-        try {
-            $this->image->fromFile($source)->sepia()->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $this->image->fromFile($source)->sepia()->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -416,13 +315,8 @@ class Action
      */
     public function sharpen(&$source, $target)
     {
-        try {
-            $this->image->fromFile($source)->sharpen()->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $this->image->fromFile($source)->sharpen()->toFile($target);
+        $source = $target;
         return true;
     }
 
@@ -433,13 +327,8 @@ class Action
      */
     public function sketch(&$source, $target)
     {
-        try {
-            $this->image->fromFile($source)->sketch()->toFile($target);
-            $source = $target;
-        } catch (Exception $ex) {
-            return false;
-        }
-
+        $this->image->fromFile($source)->sketch()->toFile($target);
+        $source = $target;
         return true;
     }
 
