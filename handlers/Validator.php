@@ -54,11 +54,14 @@ class Validator
 
         list($overlay, $anchor, $opacity, $xoffset, $yoffset) = $value;
 
-        return is_file(gplcart_file_absolute($overlay))//
-                && in_array($anchor, array('center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right'))//
-                && (is_numeric($opacity) && (0 <= $opacity) && ($opacity <= 1))//
-                && ctype_digit($xoffset)//
-                && ctype_digit($yoffset);
+        $positions = array('center', 'top', 'bottom', 'left', 'right',
+            'top left', 'top right', 'bottom left', 'bottom right');
+
+        return is_file(gplcart_file_absolute($overlay))
+            && in_array($anchor, $positions)
+            && (is_numeric($opacity) && (0 <= $opacity) && ($opacity <= 1))
+            && ctype_digit($xoffset)
+            && ctype_digit($yoffset);
     }
 
     /**
@@ -73,9 +76,9 @@ class Validator
 
         list($angle, $color) = $value;
 
-        return filter_var($angle, FILTER_VALIDATE_INT) !== false//
-                && (-360 <= $angle) && ($angle <= 360)//
-                && ($this->isHex($color) || $color === 'transparent');
+        return filter_var($angle, FILTER_VALIDATE_INT) !== false
+            && (-360 <= $angle) && ($angle <= 360)
+            && ($this->isHex($color) || $color === 'transparent');
     }
 
     /**
@@ -111,9 +114,9 @@ class Validator
      */
     public function contrast(array $value)
     {
-        return count($value) == 1//
-                && filter_var($value[0], FILTER_VALIDATE_INT) !== false//
-                && (-100 <= $value[0]) && ($value[0] <= 100);
+        return count($value) == 1
+            && filter_var($value[0], FILTER_VALIDATE_INT) !== false
+            && (-100 <= $value[0]) && ($value[0] <= 100);
     }
 
     /**
