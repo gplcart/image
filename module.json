@@ -1,9 +1,9 @@
 {
-    "name": "Image",
-    "version": "1.0.0-dev",
-    "description": "Provides advanced image style actions",
-    "author": "Iurii Makukh ",
-    "core": "1.x",
-    "license": "GPL-3.0+",
-    "php": ">= 5.6"
+  "name": "Image",
+  "version": "1.0.0-dev",
+  "description": "Provides advanced image style actions",
+  "author": "Iurii Makukh ",
+  "core": "1.x",
+  "license": "GPL-3.0+",
+  "php": ">= 5.6"
 }
