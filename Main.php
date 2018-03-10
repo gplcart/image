@@ -54,9 +54,7 @@ class Main
             'url' => 'https://github.com/claviska/SimpleImage',
             'download' => 'https://github.com/claviska/SimpleImage/archive/3.3.0.zip',
             'version' => '3.3.0',
-            'files' => array(
-                'vendor/claviska/simpleimage/src/claviska/SimpleImage.php'
-            )
+            'vendor' => 'claviska/simpleimage'
         );
     }
 
